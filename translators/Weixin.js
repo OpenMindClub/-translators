@@ -62,6 +62,7 @@ function scrape(doc, url) {
 	item.accessDate = new Date().toISOString().slice(0, 10);
 	item.blogTitle = doc.querySelector("#js_name").innerText.trim(); 
 	note_content = doc.body.querySelector("#js_content").innerHTML.trim();
+	item.date = doc.querySelector("#publish_time").innerText;
 	note_content = note_content.replace(/\"/g, "'");
 	note_content = note_content.replace(/<img .*?src='(.*?)'.*?>/g, "<img src='$1'\/>");
 	note_content = `<h1>'摘录'-${item.title}</h1>` + note_content;
